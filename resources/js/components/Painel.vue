@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        <div class="card-header">{{titulo}}</div>
+        <div v-bind:class="defineCor">{{titulo}}</div>
 
         <div class="card-body">
             <slot></slot>
@@ -10,6 +10,11 @@
 
 <script>
     export default {
-        props:['titulo']
+        props:['titulo','cor'],
+        computed:{
+            defineCor: function(){
+                return "card-header text-white "+ (this.cor || "bg-primary");
+            }
+        }
     }
 </script>
