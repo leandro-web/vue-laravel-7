@@ -8,9 +8,7 @@
                     Teste de conteúdo...
                     <div class="row">
                         <div class="col-md-4">
-                            <painel titulo="Painel 1" cor="bg-success">
-                                Teste de conteúdo A
-                            </painel>
+                            <caixa></caixa>
                         </div>
     
                         <div class="col-md-4">
