@@ -1,7 +1,10 @@
 <template>
     <div>
-        <a v-if="criar" v-bind:href="criar" class="btn btn-success my-3 float-left">Criar</a>
-        <div class="form-inline float-right">
+        <a v-if="criar && !modal" v-bind:href="criar" class="btn btn-success  float-left">Criar</a>
+
+        <modal-link v-if="criar && modal" nome="adicionar" titulo="Novo"></modal-link>
+
+        <div class="form-inline float-right mb-3">
             <input type="search" class="form-control" placeholder="Buscar" v-model="buscar">
         </div>
 
@@ -21,19 +24,24 @@
                             <input type="hidden" name="_token" value="token">
                             
                             <a v-if="detalhe" v-bind:href="detalhe" class="btn btn-outline-success btn-sm mx-1">Detalhe</a>
-                            <a v-if="editar" v-bind:href="editar" class="btn btn-outline-primary btn-sm mx-1">Editar</a>
+                            <a v-if="editar && !modal" v-bind:href="editar" class="btn btn-outline-primary btn-sm mx-1">Editar</a>
+                            <modal-link v-if="editar && modal" nome="editar" titulo="Editar" css="btn btn-outline-primary btn-sm mx-1"></modal-link>
+
                             <a href="#" class="btn btn-outline-danger btn-sm mx-1" v-on:click="executaForm(index)">Deletar</a>
                         </form>
 
                         <span v-if="!token">
                             <a v-if="detalhe" v-bind:href="detalhe" class="btn btn-outline-success btn-sm mx-1">Detalhe</a>
-                            <a v-if="editar" v-bind:href="editar" class="btn btn-outline-primary btn-sm mx-1">Editar</a>
+                            <a v-if="editar && !modal" v-bind:href="editar" class="btn btn-outline-primary btn-sm mx-1">Editar</a>
+                            <modal-link v-if="editar && modal" nome="editar" titulo="Editar" css="btn btn-outline-primary btn-sm mx-1"></modal-link>
+
                             <a v-if="deletar" v-bind:href="deletar" class="btn btn-outline-danger btn-sm mx-1">Deletar</a>
                         </span>
 
                         <span v-if="token && !deletar">
                             <a v-if="detalhe" v-bind:href="detalhe" class="btn btn-outline-success btn-sm mx-1">Detalhe</a>
-                            <a v-if="editar" v-bind:href="editar" class="btn btn-outline-primary btn-sm mx-1">Editar</a>
+                            <a v-if="editar && !modal" v-bind:href="editar" class="btn btn-outline-primary btn-sm mx-1">Editar</a>
+                            <modal-link v-if="editar && modal" nome="editar" titulo="Editar" css="btn btn-outline-primary btn-sm mx-1"></modal-link>
                         </span>
 
                     </td>
@@ -44,7 +52,7 @@
 </template>
 <script>
     export default {
-        props:['titulos','itens','criar','detalhe','editar','deletar','token','ordem','ordemcol'],
+        props:['titulos','itens','criar','detalhe','editar','deletar','token','ordem','ordemcol','modal'],
         data: function(){
             return{
                 buscar:'',
