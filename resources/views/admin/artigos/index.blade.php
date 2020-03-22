@@ -22,7 +22,17 @@
     </pagina>
     <modal nome="meuModal">
         <painel titulo="Lista de artigos">
-            <p>123456</p>
+            <formulario css="" action="#" method="put" enctype="multipart/form-data" token="123456">
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título">
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição">
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </formulario>
         </painel>
     </modal>
 @endsection
