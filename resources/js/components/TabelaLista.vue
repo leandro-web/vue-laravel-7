@@ -1,5 +1,6 @@
 <template>
     <div>
+        <p>{{this.$store.state.itens}}</p>
         <a v-if="criar && !modal" v-bind:href="criar" class="btn btn-success  float-left">Criar</a>
 
         <modal-link v-if="criar && modal" nome="adicionar" titulo="Novo"></modal-link>
@@ -75,6 +76,8 @@
         },
         computed:{
             lista: function(){
+
+                this.$store.commit('setItens',{opa:"OK"});
 
                 let ordem = this.ordemAux;
                 let ordemCol = this.ordemAuxCol;

@@ -8,6 +8,21 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import Vuex from 'Vuex';
+Vue.use(Vuex);
+
+//Vuex
+
+const store = new Vuex.Store({
+    state:{
+        itens:{teste:"Opa funcionou"}
+    },
+    mutations:{
+        setItens(state,obj){
+            state.itens = obj;
+        }
+    }
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -38,4 +53,5 @@ Vue.component('formulario', require('./components/Formulario.vue').default);
 
 const app = new Vue({
     el: '#app',
+    store
 });
