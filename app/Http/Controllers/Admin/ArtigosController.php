@@ -18,7 +18,16 @@ class ArtigosController extends Controller
             ['titulo'=>'Home','url'=>route('home')],
             ['titulo'=>'Lista de Artigos','url'=>'']
         ]);
-        return view('admin.artigos.index',compact('listaMigalhas'));
+
+        $listaArtigos = json_encode([
+            ['id'=>1,'titulo'=>'PHP','descricao'=>'Curso de Laravel 7'],
+            ['id'=>2,'titulo'=>'JS','descricao'=>'Curso de Vue'],
+            ['id'=>3,'titulo'=>'Mobile','descricao'=>'Curso de React Native'],
+            ['id'=>4,'titulo'=>'Node','descricao'=>'Curso de NodeJS'],
+            ['id'=>5,'titulo'=>'JS','descricao'=>'Curso de React']
+        ]);
+
+        return view('admin.artigos.index',compact('listaMigalhas','listaArtigos'));
     }
 
     /**

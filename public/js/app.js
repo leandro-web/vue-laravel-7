@@ -2158,11 +2158,11 @@ __webpack_require__.r(__webpack_exports__);
 
       if (ordem == "asc") {
         this.itens.sort(function (a, b) {
-          if (a[ordemCol] > b[ordemCol]) {
+          if (Object.values(a)[ordemCol] > Object.values(b)[ordemCol]) {
             return 1;
           }
 
-          if (a[ordemCol] < b[ordemCol]) {
+          if (Object.values(a)[ordemCol] < Object.values(b)[ordemCol]) {
             return -1;
           }
 
@@ -2170,11 +2170,11 @@ __webpack_require__.r(__webpack_exports__);
         });
       } else {
         this.itens.sort(function (a, b) {
-          if (a[ordemCol] < b[ordemCol]) {
+          if (Object.values(a)[ordemCol] < Object.values(b)[ordemCol]) {
             return 1;
           }
 
-          if (a[ordemCol] > b[ordemCol]) {
+          if (Object.values(a)[ordemCol] > Object.values(b)[ordemCol]) {
             return -1;
           }
 
@@ -2182,15 +2182,18 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
 
-      return this.itens.filter(function (res) {
-        for (var k = 0; k < res.length; k++) {
-          if ((res[k] + "").toLowerCase().indexOf(_this.buscar.toLowerCase()) >= 0) {
-            return true;
+      if (this.busca) {
+        return this.itens.filter(function (res) {
+          for (var k = 0; k < res.length; k++) {
+            if ((res[k] + "").toLowerCase().indexOf(_this.buscar.toLowerCase()) >= 0) {
+              return true;
+            }
           }
-        }
 
-        return false;
-      });
+          return false;
+        });
+      }
+
       return this.itens;
     }
   }
