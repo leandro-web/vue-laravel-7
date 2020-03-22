@@ -12,7 +12,7 @@
                     ['4','NODE','Curso de NodeJS'],
                     ['5','JS','Curso de ReactJS']
                 ]"
-                ordem="asc" ordemCol="2"
+                ordem="asc" ordemcol="2"
                 criar="#criar" detalhe="#detalhe" editar="#editar" deletar="#deletar" token="991727681"
             >
            </tabela-lista>
