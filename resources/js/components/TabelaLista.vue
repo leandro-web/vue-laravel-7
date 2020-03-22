@@ -8,13 +8,13 @@
         <table class="table table-striped table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th style="cursor:pointer;" v-on:click="ordenaColuna(index)" scope="col" v-for="(titulo,index) in titulos">{{titulo}}</th>
+                    <th style="cursor:pointer;" v-on:click="ordenaColuna(index)" scope="col" v-for="(titulo,index) in titulos" :key="titulo.id">{{titulo}}</th>
                     <th scope="col" i-if="detalhe || editar || deletar">Ação</th>
                 </tr>
             </thead> 
             <tbody >
-                <tr v-for="(item,index) in lista">
-                    <td v-for="i in item">{{i}}</td>
+                <tr v-for="(item,index) in lista" :key="item.id">
+                    <td v-for="i in item" :key="i.id">{{i}}</td>
                     <td v-if="detalhe || editar || deletar">
                         <form v-bind:id="index" v-if="deletar && token" v-bind:action="deletar" method="post">
                             <input type="hidden" name="_method" value="DELETE">
