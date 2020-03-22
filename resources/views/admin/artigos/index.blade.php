@@ -4,6 +4,7 @@
     <pagina tamanho="12">
         <painel titulo="Lista de artigos">
             <migalhas v-bind:lista="{{$listaMigalhas}}"></migalhas>
+            <modal-link nome="meuModal" titulo="Novo"></modal-link>
             <tabela-lista 
                 v-bind:titulos="['id','Título','Descrição',]"
                 v-bind:itens="[
@@ -19,4 +20,9 @@
             </tabela-lista>
         </painel>
     </pagina>
+    <modal nome="meuModal">
+        <painel titulo="Lista de artigos">
+            <p>123456</p>
+        </painel>
+    </modal>
 @endsection
