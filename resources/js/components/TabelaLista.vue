@@ -1,6 +1,5 @@
 <template>
     <div>
-        <p>{{this.$store.state.itens}}</p>
         <a v-if="criar && !modal" v-bind:href="criar" class="btn btn-success  float-left">Criar</a>
 
         <modal-link v-if="criar && modal" nome="adicionar" titulo="Novo"></modal-link>
@@ -24,11 +23,11 @@
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="token">
                             
-                            <a v-if="detalhe" v-bind:href="detalhe" class="btn btn-outline-success btn-sm mx-1">Detalhe</a>
-                            <a v-if="editar && !modal" v-bind:href="editar" class="btn btn-outline-primary btn-sm mx-1">Editar</a>
-                            <modal-link v-if="editar && modal" nome="editar" titulo="Editar" css="btn btn-outline-primary btn-sm mx-1"></modal-link>
+                            <a v-if="detalhe" v-bind:href="detalhe" class="btn btn-outline-success btn-sm mx-1 float-left">Detalhe</a>
+                            <a v-if="editar && !modal" v-bind:href="editar" class="btn btn-outline-primary btn-sm mx-1 float-lef">Editar</a>
+                            <modal-link v-if="editar && modal" v-bind:item="item" nome="editar" titulo="Editar" css="btn btn-outline-primary btn-sm mx-1 float-lef"></modal-link>
 
-                            <a href="#" class="btn btn-outline-danger btn-sm mx-1" v-on:click="executaForm(index)">Deletar</a>
+                            <a href="#" class="btn btn-outline-danger btn-sm mx-1 float-lef" v-on:click="executaForm(index)">Deletar</a>
                         </form>
 
                         <span v-if="!token">
@@ -76,9 +75,7 @@
         },
         computed:{
             lista: function(){
-
-                this.$store.commit('setItens',{opa:"OK"});
-
+                
                 let ordem = this.ordemAux;
                 let ordemCol = this.ordemAuxCol;
                 ordem = ordem.toLowerCase();

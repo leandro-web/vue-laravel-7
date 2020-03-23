@@ -3204,7 +3204,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordem', 'ordemcol', 'modal'],
   data: function data() {
@@ -3232,9 +3231,6 @@ __webpack_require__.r(__webpack_exports__);
     lista: function lista() {
       var _this = this;
 
-      this.$store.commit('setItens', {
-        opa: "OK"
-      });
       var ordem = this.ordemAux;
       var ordemCol = this.ordemAuxCol;
       ordem = ordem.toLowerCase();
@@ -3364,8 +3360,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['nome', 'titulo', 'css'],
+  props: ['nome', 'titulo', 'css', 'item'],
   computed: {
     defineCss: function defineCss() {
       if (this.css) {
@@ -3373,6 +3376,11 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         return "btn btn-primary";
       }
+    }
+  },
+  methods: {
+    preencheFormulario: function preencheFormulario() {
+      this.$store.commit('setItem', this.item);
     }
   }
 });
@@ -39583,8 +39591,6 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("p", [_vm._v(_vm._s(this.$store.state.itens))]),
-      _vm._v(" "),
       _vm.criar && !_vm.modal
         ? _c(
             "a",
@@ -39706,7 +39712,7 @@ var render = function() {
                                     "a",
                                     {
                                       staticClass:
-                                        "btn btn-outline-success btn-sm mx-1",
+                                        "btn btn-outline-success btn-sm mx-1 float-left",
                                       attrs: { href: _vm.detalhe }
                                     },
                                     [_vm._v("Detalhe")]
@@ -39718,7 +39724,7 @@ var render = function() {
                                     "a",
                                     {
                                       staticClass:
-                                        "btn btn-outline-primary btn-sm mx-1",
+                                        "btn btn-outline-primary btn-sm mx-1 float-lef",
                                       attrs: { href: _vm.editar }
                                     },
                                     [_vm._v("Editar")]
@@ -39728,9 +39734,11 @@ var render = function() {
                               _vm.editar && _vm.modal
                                 ? _c("modal-link", {
                                     attrs: {
+                                      item: item,
                                       nome: "editar",
                                       titulo: "Editar",
-                                      css: "btn btn-outline-primary btn-sm mx-1"
+                                      css:
+                                        "btn btn-outline-primary btn-sm mx-1 float-lef"
                                     }
                                   })
                                 : _vm._e(),
@@ -39739,7 +39747,7 @@ var render = function() {
                                 "a",
                                 {
                                   staticClass:
-                                    "btn btn-outline-danger btn-sm mx-1",
+                                    "btn btn-outline-danger btn-sm mx-1 float-lef",
                                   attrs: { href: "#" },
                                   on: {
                                     click: function($event) {
@@ -40001,18 +40009,46 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "button",
-    {
-      class: _vm.defineCss,
-      attrs: {
-        type: "button",
-        "data-toggle": "modal",
-        "data-target": "#" + _vm.nome
-      }
-    },
-    [_vm._v(_vm._s(_vm.titulo))]
-  )
+  return _c("span", { staticClass: "float-lef" }, [
+    _vm.item
+      ? _c("span", { staticClass: "float-lef" }, [
+          _c(
+            "button",
+            {
+              class: _vm.defineCss,
+              attrs: {
+                type: "button",
+                "data-toggle": "modal",
+                "data-target": "#" + _vm.nome
+              },
+              on: {
+                click: function($event) {
+                  return _vm.preencheFormulario()
+                }
+              }
+            },
+            [_vm._v(_vm._s(_vm.titulo))]
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    !_vm.item
+      ? _c("span", { staticClass: "float-lef" }, [
+          _c(
+            "button",
+            {
+              class: _vm.defineCss,
+              attrs: {
+                type: "button",
+                "data-toggle": "modal",
+                "data-target": "#" + _vm.nome
+              }
+            },
+            [_vm._v(_vm._s(_vm.titulo))]
+          )
+        ])
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -52201,13 +52237,11 @@ Vue.use(Vuex__WEBPACK_IMPORTED_MODULE_0__["default"]); //Vuex
 
 var store = new Vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
   state: {
-    itens: {
-      teste: "Opa funcionou"
-    }
+    item: {}
   },
   mutations: {
-    setItens: function setItens(state, obj) {
-      state.itens = obj;
+    setItem: function setItem(state, obj) {
+      state.item = obj;
     }
   }
 });

@@ -15,11 +15,11 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state:{
-        itens:{teste:"Opa funcionou"}
+        item:{}
     },
     mutations:{
-        setItens(state,obj){
-            state.itens = obj;
+        setItem(state,obj){
+            state.item = obj;
         }
     }
 });
