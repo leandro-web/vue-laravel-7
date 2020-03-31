@@ -3204,6 +3204,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordem', 'ordemcol', 'modal'],
   data: function data() {
@@ -39617,7 +39622,7 @@ var render = function() {
             }
           ],
           staticClass: "form-control",
-          attrs: { type: "search", placeholder: "Buscar" },
+          attrs: { type: "search", placeholder: "Buscar..." },
           domProps: { value: _vm.buscar },
           on: {
             input: function($event) {
@@ -39707,7 +39712,7 @@ var render = function() {
                                 }
                               }),
                               _vm._v(" "),
-                              _vm.detalhe
+                              _vm.detalhe && !_vm.modal
                                 ? _c(
                                     "a",
                                     {
@@ -39717,6 +39722,18 @@ var render = function() {
                                     },
                                     [_vm._v("Detalhe")]
                                   )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.detalhe && _vm.modal
+                                ? _c("modal-link", {
+                                    attrs: {
+                                      item: item,
+                                      nome: "detalhe",
+                                      titulo: "Detalhe",
+                                      css:
+                                        "btn btn-outline-success btn-sm mx-1 float-lef"
+                                    }
+                                  })
                                 : _vm._e(),
                               _vm._v(" "),
                               _vm.editar && !_vm.modal
@@ -39766,16 +39783,28 @@ var render = function() {
                         ? _c(
                             "span",
                             [
-                              _vm.detalhe
+                              _vm.detalhe && !_vm.modal
                                 ? _c(
                                     "a",
                                     {
                                       staticClass:
-                                        "btn btn-outline-success btn-sm mx-1",
+                                        "btn btn-outline-success btn-sm mx-1 float-left",
                                       attrs: { href: _vm.detalhe }
                                     },
                                     [_vm._v("Detalhe")]
                                   )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.detalhe && _vm.modal
+                                ? _c("modal-link", {
+                                    attrs: {
+                                      item: item,
+                                      nome: "detalhe",
+                                      titulo: "Detalhe",
+                                      css:
+                                        "btn btn-outline-success btn-sm mx-1 float-lef"
+                                    }
+                                  })
                                 : _vm._e(),
                               _vm._v(" "),
                               _vm.editar && !_vm.modal
@@ -39820,16 +39849,28 @@ var render = function() {
                         ? _c(
                             "span",
                             [
-                              _vm.detalhe
+                              _vm.detalhe && !_vm.modal
                                 ? _c(
                                     "a",
                                     {
                                       staticClass:
-                                        "btn btn-outline-success btn-sm mx-1",
+                                        "btn btn-outline-success btn-sm mx-1 float-left",
                                       attrs: { href: _vm.detalhe }
                                     },
                                     [_vm._v("Detalhe")]
                                   )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.detalhe && _vm.modal
+                                ? _c("modal-link", {
+                                    attrs: {
+                                      item: item,
+                                      nome: "detalhe",
+                                      titulo: "Detalhe",
+                                      css:
+                                        "btn btn-outline-success btn-sm mx-1 float-lef"
+                                    }
+                                  })
                                 : _vm._e(),
                               _vm._v(" "),
                               _vm.editar && !_vm.modal

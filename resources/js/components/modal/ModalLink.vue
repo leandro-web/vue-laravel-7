@@ -19,7 +19,6 @@
                 }else{
                     return "btn btn-primary";
                 }
-                
             }
         },
         methods:{
