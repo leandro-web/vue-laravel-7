@@ -43,7 +43,7 @@
                     <label for="descricao">Descrição</label>
                     <input type="text" class="form-control" id="descricao" name="descricao" v-model="$store.state.item.descricao" placeholder="Descrição">
                 </div>
-                <button type="submit" class="btn btn-primary">Atualizar</button>
+                <button type="submit" class="btn btn-primary">Atualizar </button>
             </formulario>
         </painel>
     </modal>
