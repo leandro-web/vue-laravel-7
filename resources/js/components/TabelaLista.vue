@@ -5,7 +5,7 @@
         <modal-link v-if="criar && modal" nome="adicionar" titulo="Novo"></modal-link>
 
         <div class="form-inline float-right mb-3">
-            <input type="search" class="form-control" placeholder="Buscar..." v-model="buscar">
+           <input type="search" class="form-control" placeholder="Buscar..." v-model="buscar">
         </div>
 
         <table class="table table-striped table-hover">
@@ -78,6 +78,7 @@
                 }
             }
         },
+
         computed:{
             lista: function(){
                 
@@ -100,8 +101,10 @@
                     });
                 }
 
-                if(this.busca){
+                if(this.buscar){
+                    
                     return this.itens.filter(res => {
+                        res = Object.values(res);
                         for(let k = 0; k < res.length; k++){
                             if((res[k] + "").toLowerCase().indexOf(this.buscar.toLowerCase()) >= 0){
                                 return true;
@@ -110,7 +113,9 @@
                         return false;
                     });
                 }
+
                 return this.itens;
+                
             }
         }
     }

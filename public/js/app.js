@@ -3267,8 +3267,10 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
 
-      if (this.busca) {
+      if (this.buscar) {
         return this.itens.filter(function (res) {
+          res = Object.values(res);
+
           for (var k = 0; k < res.length; k++) {
             if ((res[k] + "").toLowerCase().indexOf(_this.buscar.toLowerCase()) >= 0) {
               return true;
