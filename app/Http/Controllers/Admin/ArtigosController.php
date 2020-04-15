@@ -45,6 +45,18 @@ class ArtigosController extends Controller
     {
         //dd( $request->all() );
         $data = $request->all();
+
+        $validacao = \Validator::make($data,[
+            "titulo" => "required",
+            "conteudo" => "required",
+            "descricao" => "required",
+            "data" => "required",
+        ]);
+
+        if($validacao->fails()){
+            return redirect()->back()->withErrors($validacao)->withInput();
+        }
+
         Artigo::create($data);
 
         return redirect()->back();
